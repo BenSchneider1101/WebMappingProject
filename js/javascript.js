@@ -1,3 +1,4 @@
+// add basemap
 let map = L.map('map').setView([58.373523, 26.716045], 12)
 const osm =
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -6,10 +7,19 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 })
 osm.addTo(map)
 
+// add popups to polygons
+function popUPinfo(feature, layer) {
+ layer.bindPopup(feature.properties.NIMI)
+}
+
+
+// add geoJSON polygons
 async function addDistrictsGeoJson(url) {
  const response = await fetch(url)
  const data = await response.json()
- const polygons = L.geoJson(data)
+ const polygons = L.geoJson(data, {
+ onEachFeature: popUPinfo,
+ })
  polygons.addTo(map)
 }
 addDistrictsGeoJson('geojson/tartu_city_districts_edu.geojson')
