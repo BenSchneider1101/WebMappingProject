@@ -2,9 +2,10 @@
     color: red
 }
 
-defaultMapSettings(){
+button{
     padding-left: 5%;
     padding-top: 5%;
+    color: orange
 }
 
 .block{
