@@ -7,6 +7,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 })
 osm.addTo(map)
 
+
 // add popups to polygons
 function popUPinfo(feature, layer) {
  layer.bindPopup(feature.properties.NIMI)
