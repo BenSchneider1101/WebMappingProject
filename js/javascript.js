@@ -63,7 +63,8 @@ async function addCelltowersGeoJson(url) {
  const markers = L.geoJson(data) 
  const clusters = L.markerClusterGroup() 
  clusters.addLayer(markers) 
- clusters.addTo(map) 
+ clusters.addTo(map)
+ console.log(data.features[0])
 }
 addCelltowersGeoJson('geojson/tartu_city_celltowers_edu.geojson')
 
